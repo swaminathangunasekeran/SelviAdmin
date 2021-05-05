@@ -1,0 +1,92 @@
+<div class="m-3">
+    <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+        <div class=" w-100">
+            <div class="row">
+                <div class="col">
+                    <label for="industry">Industry</label>
+                    <select (change)="fetchBussiness($event)" formControlName="industry" id="industry"
+                     class="form-select form-control form-select-lg mb-3 w-100">
+                        <option selected value=""> Select Industry</option>
+                        <option *ngFor="let industry of industryList"
+                        value="{{industry.id}}">{{industry.name}}</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="bussiness">Bussiness</label>
+                    <select (change)="fetchCategory($event)" formControlName="bussiness" id="bussiness" 
+                    class="form-select form-control form-select-lg mb-3 w-100"
+                     placeholder="Select bussiness" >
+                        <option value="" disabled selected>Select bussiness</option>
+                        <option value="{{bussiness.id}}" *ngFor="let bussiness of bussinessList">{{bussiness.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="category" >Category</label>
+                    <select (change)="fetchSectionList($event)" formControlName="category"
+                     class="form-select form-control form-select-lg mb-3 w-100" id="category">
+                        <option value="" selected disabled value="">Select category</option>
+                        <option value="{{catIndex}}" 
+                        *ngFor="let category of categoryList; let catIndex = index">{{category.name}}</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="section">Section</label>
+                    <select formControlName="section" 
+                    class="form-select form-control form-select-lg mb-3 w-100" id="section">
+                        <option value="" selected>Select section</option>
+                        <option value="{{section.id}}" *ngFor="let section of sectionList">{{section.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="name">Name</label>
+                    <input formControlName="name" class="form-control mb-3" placeholder="Name" id="name" >
+                </div>
+                <div class="col">
+                    <label for="img">Img</label>
+                    <input formControlName="img" class="form-control mb-3" placeholder="Img Path">
+                </div>
+            </div>
+            
+            <div formArrayName="measurements" *ngFor ="let measure of measurement['controls'] ;let i = index">
+                <p> Measurement index {{i+1}}</p>
+                <div [formGroupName]="i">
+                    <div class="row">
+                        <div class="col">
+                            <label for="name">name(XL,L,M,XS)</label>
+                            <input formControlName="name"  class="form-control mb-3" placeholder="Name" >
+                        </div>
+                        <div class="col">
+                            <label for="size">Size(23,34,45)</label>
+                            <input formControlName="size"  class="form-control mb-3" placeholder="size">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="sizename">Sizename(hip,shoulder,waist)</label>
+                            <input formControlName="sizename" 
+                             class="form-control mb-3" placeholder="sizename">
+                        </div> 
+                        <div class="col">
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col">
+                        <button *ngIf="i == measurement['controls'].length-1" (click)="addMeasureMent()" class="btn-primary btn">add measurements</button> 
+                    </div>
+                    <div class="col">
+                        <button (click)="removeMeasurement(i)" class="btn-primary btn">remove measurements</button> 
+                    </div>      
+                </div>
+            </div>
+        </div>  
+        <p *ngIf="productAddStatus == 2" class="text-success">Product added successfully {{productId}}</p>
+        <p *ngIf="productAddStatus == -1" class="text-danger">Product not added</p>
+        <button [disabled]="productAddStatus > 0" class="btn-primary btn" type="submit">Submit</button> 
+    </form>
+</div>

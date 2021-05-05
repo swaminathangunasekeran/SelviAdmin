@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Order Table</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Id
+                </th>
+                <th>
+                  Date
+                </th>
+                <th>
+                  CustomerId
+                </th>
+                <th >
+                  CustomerName
+                </th>
+                <th >
+                    Status
+                  </th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <button (click)="openLg(content)" class="btn btn-primary btn-link">
+                        00345
+                      </button> 
+                  </td>
+                  <td>
+                   {{today | date:'short'}}
+                  </td>
+                  <td>
+                   345354
+                  </td>
+                  <td >
+                   Pravin
+                  </td>
+                  <td >
+                    Pending
+                   </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button (click)="openLg(content)" class="btn btn-primary btn-link">
+                            00345
+                          </button>
+                    </td>
+                    <td>
+                     {{today | date:'short'}}
+                    </td>
+                    <td>
+                     345354
+                    </td>
+                    <td >
+                     Pravin
+                    </td>
+                    <td >
+                      Pending
+                     </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <button (click)="openLg(content)" class="btn btn-primary btn-link">
+                            00345
+                          </button>
+                    </td>
+                    <td>
+                     {{today | date:'short'}}
+                    </td>
+                    <td>
+                     345354
+                    </td>
+                    <td >
+                     Pravin
+                    </td>
+                    <td >
+                      Pending
+                     </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Order Details</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Order details comes here &hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+      </ng-template>
+  </div>
+  

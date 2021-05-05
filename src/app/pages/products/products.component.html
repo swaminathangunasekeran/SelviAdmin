@@ -1,0 +1,113 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+            <div class="d-flex row justify-content-between m-3">
+                <h4 class="card-title"> Product Table</h4>
+                <button (click)="addProductModal()" class="btn btn-outline-primary btn-round">
+                  <i class="nc-icon nc-simple-add"></i> Add product
+                </button>
+            </div>
+          
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Id
+                </th>
+                <th>
+                  Name
+                </th>
+                <th >
+                    image
+                  </th>
+                <th>
+                  Industry
+                </th>
+                <th >
+                  Bussiness name
+                </th>
+               
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <button (click)="openLg(content)" class="btn btn-primary btn-link">
+                        00345
+                      </button> 
+                  </td>
+                  <td>
+                   Blue shirt
+                  </td>
+                  <td>
+                   <img alt="prod image" class="prod-tab-img" src="https://static.cilory.com/273124-thickbox_default/nologo-navy-casual-shirt.jpg"/>
+                  </td>
+                  <td >
+                   School
+                  </td>
+                  <td >
+                    PSG schools
+                   </td>
+                </tr>
+                <tr>
+                    <td>
+                      <button (click)="openLg(content)" class="btn btn-primary btn-link">
+                          00345
+                        </button> 
+                    </td>
+                    <td>
+                     Blue shirt
+                    </td>
+                    <td>
+                     <img alt="prod image" class="prod-tab-img" src="https://static.cilory.com/273124-thickbox_default/nologo-navy-casual-shirt.jpg"/>
+                    </td>
+                    <td >
+                     School
+                    </td>
+                    <td >
+                      PSG schools
+                     </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button (click)="openLg(content)" class="btn btn-primary btn-link">
+                          00345
+                        </button> 
+                    </td>
+                    <td>
+                     Blue shirt
+                    </td>
+                    <td>
+                     <img alt="prod image" class="prod-tab-img" src="https://static.cilory.com/273124-thickbox_default/nologo-navy-casual-shirt.jpg"/>
+                    </td>
+                    <td >
+                     School
+                    </td>
+                    <td >
+                      PSG schools
+                     </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Order Details</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Order details comes here &hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+      </ng-template>
+  </div>
+  
